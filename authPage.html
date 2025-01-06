@@ -58,25 +58,45 @@
                         <div class="loginwrap">
                             <form id="loginForm">
                                 <h3 class="text-center mb-4">Donor Login </h3>
+                            
+                                <!-- Email Field -->
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Email address</label>
                                     <input type="email" class="form-control" id="email" placeholder="Enter your email">
                                 </div>
+                            
+                                <!-- Mobile Field -->
                                 <div class="mb-3">
                                     <label for="mobile" class="form-label">Mobile</label>
-                                    <input type="text" class="form-control" id="mobile"
-                                        placeholder="Enter your mobile number">
+                                    <input type="text" class="form-control" id="mobile" placeholder="Enter your mobile number">
                                 </div>
-                                <div class="mb-3">
-                                    <label for="otp" class="form-label">OTP</label>
-                                    <input type="text" class="form-control" id="otp" placeholder="Enter your OTP" maxlength="6" inputmode="numeric">
+                            
+                                <!-- Login Button -->
+                                <button type="button" class="login-btn" id="showOtp">Login</button>
+                            
+                                <!-- OTP Section (Initially Hidden) -->
+                                <div id="otpSection" style="display: none;">
+                                    <div class="mb-3 mt-3">
+                                        <label for="otp" class="form-label">OTP</label>
+                                        <input type="text" class="form-control" id="otp" placeholder="Enter your OTP" maxlength="6" inputmode="numeric">
+                                    </div>
+                                    
+                                    <!-- Resend OTP -->
+                                    <div class="mb-3">
+                                        <a href="#" id="resendOtp" style="color: blue; cursor: pointer;">Resend OTP</a>
+                                    </div>
+                            
+                                    <!-- Remember Me Checkbox -->
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="rememberMe">
+                                        <label class="form-check-label" for="rememberMe">Remember Me</label>
+                                    </div>
+                            
+                                    <!-- Final Login Button -->
+                                    <button type="submit" class="login-btn">Login</button>
                                 </div>
-
-                                <div class="mb-3 form-check">
-                                    <input type="checkbox" class="form-check-input" id="rememberMe">
-                                    <label class="form-check-label" for="rememberMe">Remember Me</label>
-                                </div>
-                                <button type="submit" class="login-btn">Login</button>
+                            
+                                <!-- Sign Up Link -->
                                 <div class="text-center mt-3">
                                     <p>Don't have an account? <a href="#" id="showSignup">Sign Up</a></p>
                                 </div>
@@ -99,12 +119,16 @@
                                     <input type="text" class="form-control" id="mobile"
                                         placeholder="Enter your mobile number">
                                 </div>
-                                <div class="mb-3">
-                                    <label for="otp" class="form-label">OTP</label>
-                                    <input type="text" class="form-control" id="otp" placeholder="Enter your OTP" maxlength="6" inputmode="numeric">
+                                <div id="signupOtpField" style="display: none;">
+                                    <div class="mb-3">
+                                        <label for="otp" class="form-label">OTP</label>
+                                        <input type="text" class="form-control" id="otp" placeholder="Enter your OTP" maxlength="6" inputmode="numeric">
+                                    </div>
+                                    <button type="button" id="resendOtpSignup" class="btn btn-link">Resend OTP</button>
                                 </div>
 
-                                <button type="submit" class="login-btn">Register</button>
+                                <button type="button" id="signupNext" class="login-btn">Next</button>
+                                <button type="submit" id="signupSubmit" class="login-btn" style="display: none;">Register</button>
                                 <div class="text-center mt-3">
                                     <p>Already have an account? <a href="#" id="showLogin">Log in</a></p>
                                 </div>
@@ -490,6 +514,34 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script> -->
     <script>
+        document.getElementById('showOtp').addEventListener('click', function() {
+            document.getElementById('otpSection').style.display = 'block';
+            document.getElementById('showOtp').style.display = 'none';
+        });
+    
+        document.getElementById('resendOtp').addEventListener('click', function() {
+            alert('OTP Resent Successfully!');
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const signupNextBtn = document.getElementById("signupNext");
+            const signupSubmitBtn = document.getElementById("signupSubmit");
+            const signupOtpField = document.getElementById("signupOtpField");
+            const resendOtpSignup = document.getElementById("resendOtpSignup");
+    
+            signupNextBtn.addEventListener("click", function () {
+                signupOtpField.style.display = "block";
+                signupNextBtn.style.display = "none";
+                signupSubmitBtn.style.display = "block";
+            });
+    
+            resendOtpSignup.addEventListener("click", function () {
+                alert("OTP Resent Successfully!");
+            });
+        });
+    </script>
+    <script>
         document.addEventListener("DOMContentLoaded", function () {
             // Get references to the forms and buttons
             const loginForm = document.getElementById("loginForm");
@@ -511,6 +563,7 @@
                 signupForm.style.display = "none";
                 loginForm.style.display = "block";
             });
+            
         });
 
     </script>
