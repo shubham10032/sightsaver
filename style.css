@@ -583,7 +583,7 @@ svg.mail-icon path {
     list-style: none;
     display: flex; /* Aligns items horizontally */
     flex-direction: row; /* Default value, ensures horizontal alignment */
-    gap: 8rem; /* Adds spacing between items */
+    gap: 5rem; /* Adds spacing between items */
     font-size: 20px;
     padding: 0; /* Removes padding from the list */
     margin: 0; /* Removes margin from the list */
