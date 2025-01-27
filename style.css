@@ -379,7 +379,7 @@ footer::after {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: end;
 }
 .footer_logo {
   width: 300px;
@@ -490,7 +490,7 @@ svg.mail-icon path {
   text-transform: uppercase;
   color: var(--secondary-color);
   gap: 20px;
-  padding: 5% 8%;
+  padding: 5% 1%;
 }
 
 .icons_box img {
@@ -579,15 +579,15 @@ svg.mail-icon path {
 }
 
 .listings ul {
-  width: 100%;
-  list-style: none;
-  /* column-count: 2; */
-  gap: 0.3rem;
-  display: flex;
-  flex-direction: column;
-  /* padding-left: 8%; */
-  font-size: 20px;
-}
+    width: 100%;
+    list-style: none;
+    display: flex; /* Aligns items horizontally */
+    flex-direction: row; /* Default value, ensures horizontal alignment */
+    gap: 8rem; /* Adds spacing between items */
+    font-size: 20px;
+    padding: 0; /* Removes padding from the list */
+    margin: 0; /* Removes margin from the list */
+  }
 
 .news_card_wrapper {
   display: flex;
